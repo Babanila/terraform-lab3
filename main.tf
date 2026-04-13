@@ -62,7 +62,7 @@ resource "aws_security_group" "web" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # In real work, lock this to your office IP!
+    cidr_blocks = ["0.0.0.0/0"] # In real work, lock this to your office IP!
   }
 
   egress {
@@ -77,12 +77,12 @@ resource "aws_security_group" "web" {
 
 data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["099720109477"]  # Canonical
+  owners      = ["099720109477"] # Canonical
 
-	filter {
-	  name   = "name"
-	  values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
-	}
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd-gp3/ubuntu-noble-24.04-amd64-server-*"]
+  }
 }
 
 resource "aws_instance" "web" {
